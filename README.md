@@ -9,9 +9,9 @@
 ### To run app: 
 
 ```bash
-npm run dev
+"npm run dev"
 
---or
+or
 
-yarn dev
+"yarn dev"
 ```
