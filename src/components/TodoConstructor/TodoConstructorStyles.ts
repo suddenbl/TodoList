@@ -15,21 +15,45 @@ const ConstructorTitle = styled.label`
   color: white;
 `;
 
+const ConstructorLabel = styled.label`
+  position: relative;
+  width: 100%;
+`;
+
 const ConstructorInput = styled.input`
+  width: 100%;
   padding: 10px;
   font-size: 18px;
-  color: white;
+  color: black;
   border-radius: 5px;
   border: none;
-  transition: outline 0.3s ease-in-out;
 
   &:focus {
-    outline: 2px solid black;
+    outline: 2px solid aquamarine;
   }
+`;
+
+const ErrorMsg = styled.div`
+  position: absolute;
+  padding: 3px;
+  font-size: 12px;
+  color: black;
+  background-color: red;
+  text-align: center;
+  bottom: -22px;
+  left: 0;
+  right: 0;
 `;
 
 const SubmitButton = styled(Button)`
   width: 115px;
 `;
 
-export { ConstructorTitle, ConstructorInput, ConstructorWrapper, SubmitButton };
+export {
+  ConstructorTitle,
+  ConstructorInput,
+  ConstructorWrapper,
+  ConstructorLabel,
+  ErrorMsg,
+  SubmitButton,
+};

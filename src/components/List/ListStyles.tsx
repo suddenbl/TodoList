@@ -14,4 +14,10 @@ const StyledList = styled.ul`
   flex-direction: column;
 `;
 
-export { ListContainer, StyledList };
+const Loading = styled.div`
+  padding: 20px;
+  font-size: 30;
+  color: white;
+`;
+
+export { ListContainer, StyledList, Loading };

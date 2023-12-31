@@ -1,16 +1,17 @@
 import styled from 'styled-components';
 
 const ItemContainer = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 0.5fr 0.5fr;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
   padding: 10px;
   border-radius: 10px;
 `;
 
-const ItemTitle = styled.h3`
+const ItemTitle = styled.h3<{ $completed: boolean }>`
   font-size: 17px;
   color: white;
+  text-decoration: ${(props) => (props.$completed ? 'line-through' : 'none')};
 `;
 
 const ItemTitleNumber = styled.span`
@@ -19,4 +20,9 @@ const ItemTitleNumber = styled.span`
 
 const ItemCheckbox = styled.input``;
 
-export { ItemContainer, ItemTitle, ItemCheckbox, ItemTitleNumber };
+const ItemButtonsContainer = styled.div`
+  display: flex;
+  gap: 10px;
+`;
+
+export { ItemContainer, ItemTitle, ItemCheckbox, ItemTitleNumber, ItemButtonsContainer };

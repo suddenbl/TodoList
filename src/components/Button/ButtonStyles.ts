@@ -4,25 +4,28 @@ import { buttonReset } from '../../styles/mixins';
 const StyledButton = styled.button`
   ${buttonReset}
 
-  /* max-width: 115px; */
   color: white;
   padding: 10px;
-  background-color: #3b6780;
+  background-color: #293a71;
   border-radius: 5px;
   transition: background-color 0.3s ease-in-out;
+  outline: none;
+  border: none;
 
   &:focus {
-    outline: none;
-    background-color: #165475;
+    outline: blue;
+    background-color: #1b274c;
   }
-
   &:hover {
-    background-color: #254252;
+    background-color: #1b274c;
   }
-
   &:active {
-    background-color: #142630;
+    background-color: #0e1426;
   }
 `;
 
-export { StyledButton };
+const SmallButton = styled(StyledButton)`
+  max-width: 115px;
+`;
+
+export { StyledButton, SmallButton };

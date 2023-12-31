@@ -1,15 +1,25 @@
 import { FC } from 'react';
-import { StyledButton } from './ButtonStyles';
+import { SmallButton, StyledButton } from './ButtonStyles';
 
 type ButtonProps = {
   title: string;
   onClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
+  size?: string;
+  isDisabled?: boolean;
 };
 
-const Button: FC<ButtonProps> = ({ title, onClick }) => {
+const Button: FC<ButtonProps> = ({ title, onClick, size, isDisabled }) => {
   return (
     <>
-      <StyledButton onClick={onClick}>{title.toUpperCase()}</StyledButton>
+      {size === 'small' ? (
+        <SmallButton disabled={isDisabled} onClick={onClick}>
+          {title.toUpperCase()}
+        </SmallButton>
+      ) : (
+        <StyledButton disabled={isDisabled} onClick={onClick}>
+          {title.toUpperCase()}
+        </StyledButton>
+      )}
     </>
   );
 };

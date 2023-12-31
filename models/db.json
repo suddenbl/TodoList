@@ -2,9 +2,21 @@
   "todos": [
     {
       "userId": 1,
-      "id": 1,
-      "title": "title",
-      "completed": false
+      "id": 489,
+      "title": "Code todo list",
+      "completed": true
+    },
+    {
+      "userId": 1,
+      "id": 597,
+      "title": "Test it",
+      "completed": true
+    },
+    {
+      "userId": 1,
+      "id": 584,
+      "title": "Enjoy yourself 😎 ",
+      "completed": true
     }
   ]
 }

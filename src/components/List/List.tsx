@@ -1,40 +1,30 @@
-import { useEffect, useState, FC } from 'react';
-import { ListContainer, StyledList } from './ListStyles';
+import { useEffect, FC } from 'react';
+import { ListContainer, Loading, StyledList } from './ListStyles';
 import ListItem from '../ListItem/ListItem';
-import TodoConstructor from '../TodoConsctructor/TodoConstructor';
-
-export type Todo = {
-  userId: number;
-  id: number;
-  title: string;
-  completed: boolean;
-};
+import TodoConstructor from '../TodoConstructor/TodoConstructor';
+import { useTodoStore } from '../../store/todosStore';
 
 const List: FC = () => {
-  const [items, setItems] = useState<Todo[]>([]);
+  const { todos, setFetchTodos } = useTodoStore();
 
   useEffect(() => {
     const fetchTodos = async () => {
-      const response = await fetch('https://67c2d2cb1a093233.mokky.dev/todos');
+      const response = await fetch('http://localhost:3000/todos');
       const data = await response.json();
       console.log(data);
-      setItems(data);
+      setFetchTodos(data);
     };
 
     fetchTodos();
   }, []);
 
+  const todoArray = todos.map((item, index) => <ListItem key={item.id} {...item} index={index} />);
+
   return (
     <>
       <ListContainer>
         <TodoConstructor />
-        <StyledList>
-          {items.length > 0 ? (
-            items.map((item) => <ListItem key={item.id} {...item} />)
-          ) : (
-            <>Еще нет дел</>
-          )}
-        </StyledList>
+        <StyledList>{todos.length > 0 ? todoArray : <Loading>Loading...</Loading>}</StyledList>
       </ListContainer>
     </>
   );
