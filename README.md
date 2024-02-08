@@ -15,3 +15,9 @@ or
 
 "yarn dev"
 ```
+
+### To run JSON-SERVER: 
+
+```bash
+"json-server --watch db.json"
+```
